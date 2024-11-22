@@ -1,81 +1,236 @@
-<html>
-<head>
-<title>trabalho.java</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #a9b7c6;}
-.s1 { color: #cc7832;}
-.s2 { color: #6a8759;}
-.s3 { color: #6897bb;}
-</style>
-</head>
-<body bgcolor="#2b2b2b">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-trabalho.java</font>
-</center></td></tr></table>
-<pre>
-<span class="s1">import </span><span class="s0">java.util.ArrayList</span><span class="s1">;</span>
-        <span class="s1">import </span><span class="s0">java.util.List</span><span class="s1">;</span>
-        <span class="s1">import </span><span class="s0">java.util.Scanner</span><span class="s1">;</span>
+import java.util.Scanner;
 
-<span class="s1">class </span><span class="s0">Question {</span>
-    <span class="s0">String question</span><span class="s1">;</span>
-    <span class="s0">String[] options</span><span class="s1">;</span>
-    <span class="s1">int </span><span class="s0">correctAnswerIndex</span><span class="s1">;</span>
+class SistemaPerguntas {
 
-    <span class="s0">Question(String question</span><span class="s1">, </span><span class="s0">String[] options</span><span class="s1">, int </span><span class="s0">correctAnswerIndex) {</span>
-        <span class="s1">this</span><span class="s0">.question = question</span><span class="s1">;</span>
-        <span class="s1">this</span><span class="s0">.options = options</span><span class="s1">;</span>
-        <span class="s1">this</span><span class="s0">.correctAnswerIndex = correctAnswerIndex</span><span class="s1">;</span>
-    <span class="s0">}</span>
+    static class Questao {
+        String pergunta;
+        String opcaoA;
+        String opcaoB;
+        String opcaoC;
+        String opcaoD;
+        String opcaoE;
+        String correta;
 
+        // Método para exibir a questão
+        public void escrevaQuestao() {
+            System.out.println(pergunta);
+            System.out.println(opcaoA);
+            System.out.println(opcaoB);
+            System.out.println(opcaoC);
+            System.out.println(opcaoD);
+            System.out.println(opcaoE);
+        }
 
+        // Método para ler a resposta do usuário
+        public String leiaResposta() {
+            Scanner scanner = new Scanner(System.in);
+            return scanner.nextLine().toUpperCase();
+        }
 
-    <span class="s1">public static void </span><span class="s0">main(String[] args) {</span>
-        <span class="s0">List&lt;Question&gt; questions = </span><span class="s1">new </span><span class="s0">ArrayList&lt;&gt;()</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual a capital da França?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Berlim&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Paris&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Madrid&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Lisboa&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual é a maior montanha do mundo?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) K2&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Everest&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Kangchenjunga&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Lhotse&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o elemento químico com símbolo 'O'?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Ouro&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Oxigênio&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Prata&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Hidrogênio&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual a moeda do Japão?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Dólar&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Euro&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Iene&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Won&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Quem escreveu 'Dom Casmurro'?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Machado de Assis&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Jorge Amado&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Clarice Lispector&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Guimarães Rosa&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">0</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o maior oceano do mundo?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Atlântico&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Índico&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Pacífico&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Ártico&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o planeta mais próximo do sol?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Vênus&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Terra&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Mercúrio&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Marte&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Quem pintou a Mona Lisa?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Van Gogh&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Picasso&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Da Vinci&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Michelangelo&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual a língua mais falada do mundo?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Inglês&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Mandarim&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Espanhol&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Árabe&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Quem foi Albert Einstein?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Um matemático&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Um físico&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Um químico&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Um biólogo&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o continente onde está o Egito?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Europa&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Ásia&quot;</span><span class="s1">, </span><span class="s2">&quot;C) África&quot;</span><span class="s1">, </span><span class="s2">&quot;D) América&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o animal símbolo do Brasil?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Onça&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Lobo&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Águia&quot;</span><span class="s1">, </span><span class="s2">&quot;D) Tatu&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">0</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Em que ano o homem pisou na Lua?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) 1965&quot;</span><span class="s1">, </span><span class="s2">&quot;B) 1969&quot;</span><span class="s1">, </span><span class="s2">&quot;C) 1972&quot;</span><span class="s1">, </span><span class="s2">&quot;D) 1980&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual o maior país do mundo?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) Estados Unidos&quot;</span><span class="s1">, </span><span class="s2">&quot;B) Canadá&quot;</span><span class="s1">, </span><span class="s2">&quot;C) Rússia&quot;</span><span class="s1">, </span><span class="s2">&quot;D) China&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">2</span><span class="s0">))</span><span class="s1">;</span>
-        <span class="s0">questions.add(</span><span class="s1">new </span><span class="s0">Question(</span><span class="s2">&quot;Qual a fórmula química da água?&quot;</span><span class="s1">, new </span><span class="s0">String[]{</span><span class="s2">&quot;A) H2O&quot;</span><span class="s1">, </span><span class="s2">&quot;B) CO2&quot;</span><span class="s1">, </span><span class="s2">&quot;C) O2&quot;</span><span class="s1">, </span><span class="s2">&quot;D) NaCl&quot;</span><span class="s0">}</span><span class="s1">, </span><span class="s3">0</span><span class="s0">))</span><span class="s1">;</span>
+        // Método para verificar se a resposta está correta
+        public boolean isCorreta(String respostaUsuario) {
+            return respostaUsuario.equals(correta);
+        }
+    }
 
-        <span class="s1">int </span><span class="s0">score = </span><span class="s3">0</span><span class="s1">;</span>
-        <span class="s0">Scanner scanner = </span><span class="s1">new </span><span class="s0">Scanner(System.in)</span><span class="s1">;</span>
+    // Função para exibir o cabeçalho
+    private static void exibirCabecalho() {
+        System.out.println("==================================================");
+        System.out.println("Nome da Faculdade: UNIFAN");
+        System.out.println("Nome do Aluno: Kleverson Ramos");
+        System.out.println("Nome do Professor: Breno");
+        System.out.println("==================================================");
+        System.out.println("Bem-vindo(a)! Você responderá 15 perguntas de múltipla escolha sobre o tema escolhido: Conhecimentos Gerais");
+        System.out.println("Vamos começar!");
+        System.out.println("==================================================");
+    }
 
-        <span class="s1">for </span><span class="s0">(Question q : questions) {</span>
-            <span class="s0">System.out.println(q.question)</span><span class="s1">;</span>
-            <span class="s1">for </span><span class="s0">(String option : q.options) {</span>
-                <span class="s0">System.out.println(option)</span><span class="s1">;</span>
-            <span class="s0">}</span>
+    public static void main(String[] args) {
+        int acertos = 0;
+        int erros = 0;
+        int totalQuestoes = 15;
 
-            <span class="s0">System.out.print(</span><span class="s2">&quot;Digite a letra da sua resposta: &quot;</span><span class="s0">)</span><span class="s1">;</span>
-            <span class="s0">String userAnswer = scanner.nextLine().toUpperCase()</span><span class="s1">;</span>
+        // Definir o nome da faculdade, aluno e professor
+        String nomeFaculdade = "Universidade Alfredo Nasser";
+        String nomeAluno = "Raphael Kojima de Freitas";
+        String nomeProfessor = "Brenno";
 
-            <span class="s1">if </span><span class="s0">(userAnswer.equals(q.options[q.correctAnswerIndex].substring(</span><span class="s3">0</span><span class="s1">, </span><span class="s3">1</span><span class="s0">))) {</span>
-                <span class="s0">System.out.println(</span><span class="s2">&quot;Correto!&quot;</span><span class="s0">)</span><span class="s1">;</span>
-                <span class="s0">score++</span><span class="s1">;</span>
-            <span class="s0">} </span><span class="s1">else </span><span class="s0">{</span>
-                <span class="s0">System.out.println(</span><span class="s2">&quot;Incorreto! A resposta correta é &quot; </span><span class="s0">+ q.options[q.correctAnswerIndex])</span><span class="s1">;</span>
-            <span class="s0">}</span>
-            <span class="s0">System.out.println()</span><span class="s1">;</span>
-        <span class="s0">}</span>
+        // Exibir o cabeçalho
+        exibirCabecalho();
 
-        <span class="s0">System.out.println(</span><span class="s2">&quot;Você acertou &quot; </span><span class="s0">+ score + </span><span class="s2">&quot; de &quot; </span><span class="s0">+ questions.size() + </span><span class="s2">&quot; perguntas.&quot;</span><span class="s0">)</span><span class="s1">;</span>
-        <span class="s0">scanner.close()</span><span class="s1">;</span>
-    <span class="s0">}</span>
-<span class="s0">}</span>
-</pre>
-</body>
-</html>
+        // Criando as questões
+        Questao[] questoes = new Questao[totalQuestoes];
+
+        // Questão 1
+        questoes[0] = new Questao();
+        questoes[0].pergunta = "Qual é o maior planeta do sistema solar?";
+        questoes[0].opcaoA = "A) Marte";
+        questoes[0].opcaoB = "B) Terra";
+        questoes[0].opcaoC = "C) Júpiter";
+        questoes[0].opcaoD = "D) Saturno";
+        questoes[0].opcaoE = "E) Urano";
+        questoes[0].correta = "C";
+
+        // Questão 2
+        questoes[1] = new Questao();
+        questoes[1].pergunta = "Qual é o elemento químico representado pelo símbolo 'O'?";
+        questoes[1].opcaoA = "A) Oxigênio";
+        questoes[1].opcaoB = "B) Ouro";
+        questoes[1].opcaoC = "C) Ósmio";
+        questoes[1].opcaoD = "D) Oganesson";
+        questoes[1].opcaoE = "E) Opium";
+        questoes[1].correta = "A";
+
+        // Questão 3
+        questoes[2] = new Questao();
+        questoes[2].pergunta = "Qual é a capital da França?";
+        questoes[2].opcaoA = "A) Paris";
+        questoes[2].opcaoB = "B) Londres";
+        questoes[2].opcaoC = "C) Roma";
+        questoes[2].opcaoD = "D) Madrid";
+        questoes[2].opcaoE = "E) Berlim";
+        questoes[2].correta = "A";
+
+        // Questão 4
+        questoes[3] = new Questao();
+        questoes[3].pergunta = "Quem pintou a Mona Lisa?";
+        questoes[3].opcaoA = "A) Pablo Picasso";
+        questoes[3].opcaoB = "B) Leonardo da Vinci";
+        questoes[3].opcaoC = "C) Vincent van Gogh";
+        questoes[3].opcaoD = "D) Michelangelo";
+        questoes[3].opcaoE = "E) Salvador Dalí";
+        questoes[3].correta = "B";
+
+        // Questão 5
+        questoes[4] = new Questao();
+        questoes[4].pergunta = "Em que ano o Brasil proclamou sua independência?";
+        questoes[4].opcaoA = "A) 1822";
+        questoes[4].opcaoB = "B) 1808";
+        questoes[4].opcaoC = "C) 1889";
+        questoes[4].opcaoD = "D) 1500";
+        questoes[4].opcaoE = "E) 1900";
+        questoes[4].correta = "A";
+
+        // Questão 6
+        questoes[5] = new Questao();
+        questoes[5].pergunta = "Qual é o continente onde o deserto do Saara está localizado?";
+        questoes[5].opcaoA = "A) Ásia";
+        questoes[5].opcaoB = "B) África";
+        questoes[5].opcaoC = "C) América do Sul";
+        questoes[5].opcaoD = "D) Austrália";
+        questoes[5].opcaoE = "E) Europa";
+        questoes[5].correta = "B";
+
+        // Questão 7
+        questoes[6] = new Questao();
+        questoes[6].pergunta = "Qual é o maior órgão do corpo humano?";
+        questoes[6].opcaoA = "A) Coração";
+        questoes[6].opcaoB = "B) Fígado";
+        questoes[6].opcaoC = "C) Pele";
+        questoes[6].opcaoD = "D) Cérebro";
+        questoes[6].opcaoE = "E) Pulmões";
+        questoes[6].correta = "C";
+
+        // Questão 8
+        questoes[7] = new Questao();
+        questoes[7].pergunta = "Quem foi o primeiro presidente dos Estados Unidos?";
+        questoes[7].opcaoA = "A) George Washington";
+        questoes[7].opcaoB = "B) Thomas Jefferson";
+        questoes[7].opcaoC = "C) Abraham Lincoln";
+        questoes[7].opcaoD = "D) Franklin D. Roosevelt";
+        questoes[7].opcaoE = "E) John F. Kennedy";
+        questoes[7].correta = "A";
+
+        // Questão 9
+        questoes[8] = new Questao();
+        questoes[8].pergunta = "Qual o nome da maior floresta tropical do mundo?";
+        questoes[8].opcaoA = "A) Floresta Amazônica";
+        questoes[8].opcaoB = "B) Floresta de Sherwood";
+        questoes[8].opcaoC = "C) Floresta Negra";
+        questoes[8].opcaoD = "D) Floresta do Congo";
+        questoes[8].opcaoE = "E) Floresta do Havaí";
+        questoes[8].correta = "A";
+
+        // Questão 10
+        questoes[9] = new Questao();
+        questoes[9].pergunta = "Qual é o nome da série de livros de J.R.R. Tolkien que inspirou os filmes 'O Senhor dos Anéis'?";
+        questoes[9].opcaoA = "A) As Crônicas de Nárnia";
+        questoes[9].opcaoB = "B) A Terra das Sombras";
+        questoes[9].opcaoC = "C) O Hobbit";
+        questoes[9].opcaoD = "D) O Senhor dos Anéis";
+        questoes[9].opcaoE = "E) Harry Potter";
+        questoes[9].correta = "D";
+
+        // Questão 11
+        questoes[10] = new Questao();
+        questoes[10].pergunta = "Qual é o animal símbolo da Austrália?";
+        questoes[10].opcaoA = "A) Coala";
+        questoes[10].opcaoB = "B) Canguru";
+        questoes[10].opcaoC = "C) Emu";
+        questoes[10].opcaoD = "D) Crocodilo";
+        questoes[10].opcaoE = "E) Tigre";
+        questoes[10].correta = "B";
+
+        // Questão 12
+        questoes[11] = new Questao();
+        questoes[11].pergunta = "Qual é o nome do principal satélite natural da Terra?";
+        questoes[11].opcaoA = "A) Lua";
+        questoes[11].opcaoB = "B) Fobos";
+        questoes[11].opcaoC = "C) Titã";
+        questoes[11].opcaoD = "D) Europa";
+        questoes[11].opcaoE = "E) Marte";
+        questoes[11].correta = "A";
+
+        // Questão 13
+        questoes[12] = new Questao();
+        questoes[12].pergunta = "Qual é a cor do sangue de um polvo?";
+        questoes[12].opcaoA = "A) Vermelho";
+        questoes[12].opcaoB = "B) Azul";
+        questoes[12].opcaoC = "C) Verde";
+        questoes[12].opcaoD = "D) Amarelo";
+        questoes[12].opcaoE = "E) Preto";
+        questoes[12].correta = "B";
+
+        // Questão 14
+        questoes[13] = new Questao();
+        questoes[13].pergunta = "Qual é a fórmula química da água?";
+        questoes[13].opcaoA = "A) H2O";
+        questoes[13].opcaoB = "B) CO2";
+        questoes[13].opcaoC = "C) O2";
+        questoes[13].opcaoD = "D) H2O2";
+        questoes[13].opcaoE = "E) CH4";
+        questoes[13].correta = "A";
+
+        // Questão 15
+        questoes[14] = new Questao();
+        questoes[14].pergunta = "Qual é a capital do Japão?";
+        questoes[14].opcaoA = "A) Pequim";
+        questoes[14].opcaoB = "B) Seul";
+        questoes[14].opcaoC = "C) Tóquio";
+        questoes[14].opcaoD = "D) Bangkok";
+        questoes[14].opcaoE = "E) Hanoi";
+        questoes[14].correta = "C";
+
+        // Lógica para responder às questões
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < totalQuestoes; i++) {
+            questoes[i].escrevaQuestao();
+            System.out.print("Sua resposta: ");
+            String respostaUsuario = questoes[i].leiaResposta();
+            if (!questoes[i].isCorreta(respostaUsuario)) {
+                erros++;
+            } else {
+                acertos++;
+            }
+        }
+
+        // Calculando a porcentagem de acertos
+        double porcentagemAcertos = ((double) acertos / totalQuestoes) * 100;
+
+        // Exibindo o resultado final
+        System.out.println("Resultado Final:");
+        System.out.println("Você acertou " + acertos + " questões.");
+        System.out.println("Você errou " + erros + " questões.");
+        System.out.printf("Porcentagem de acertos: %.2f%%\n", porcentagemAcertos);
+    }
+}
